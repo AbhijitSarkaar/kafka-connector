@@ -4,6 +4,6 @@
     "connector.class": "com.example.file.FileConnector",
     "tasks.max": 1,
     "topic": "file-input-topic",
-    "file": "/Users/abhijitsarkar/development/kafka/file_data.csv"
+    "file": "/Users/abhijitsarkar/development/file_data.txt"
   }
 }

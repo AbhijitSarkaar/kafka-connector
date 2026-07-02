@@ -57,6 +57,7 @@ public class FileTask extends SourceTask {
         if(stream == null) {
             try {
 
+
                 // create a stream to read from file name provided in connector configuration
                 stream = new FileInputStream(file_name);
 

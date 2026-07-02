@@ -25,7 +25,7 @@ public class FileConnector extends SourceConnector {
 
     @Override
     public Class<? extends Task> taskClass() {
-        return FileTask.class;
+        return FileTaskV2.class;
     }
 
     // returns a list of configs
