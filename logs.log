@@ -1,0 +1,63 @@
+// connector creation with kafka connect worker node
+curl -X POST -H "Content-Type: application/json" --data '{
+  "name": "file-input-connector",
+  "config": {
+    "connector.class": "com.example.file.FileConnector",
+    "tasks.max": 1,
+    "topic": "file-input-topic",
+    "file": "/Users/abhijitsarkar/development/kafka/file_data.csv"
+  }
+}' http://localhost:8083/connectors
+{
+  "name":"file-input-connector",
+  "config":{
+    "connector.class":"com.example.file.FileConnector",
+    "tasks.max":"1",
+    "topic":"file-input-topic",
+    "file":"/Users/abhijitsarkar/development/kafka/file_data.csv",
+    "name":"file-input-connector"
+  },
+  "tasks": [
+    {
+      "connector":"file-input-connector",
+      "task":0
+    }
+  ],
+  "type":"source"
+}
+
+
+
+curl -X GET http://localhost:8083/connectors
+["file-input-connector"]
+
+
+
+curl -X GET http://localhost:8083/connectors/file-input-connector/status
+{
+    "name":"file-input-connector",
+    "connector":{
+        "state":"RUNNING",
+        "worker_id":"192.168.1.2:8083",
+        "version":"1.0"},
+        "tasks":[
+            {
+                "id":0,
+                "state":"RUNNING",
+                "worker_id":"192.168.1.2:8083",
+                "version":""
+            }
+        ],
+        "type":"source"
+}
+
+
+// worker node logs
+file-input-topic
+1
+/Users/abhijitsarkar/development/kafka/file_data.csv
+FileTask.start()
+INFO [Producer clientId=connector-producer-file-input-connector-0] Cluster ID: TbMaJm_uR8yk9KOId3AEcw (org.apache.kafka.clients.Metadata:365)
+INFO [file-input-connector|task-0] WorkerSourceTask{id=file-input-connector-0} Source task finished initialization and start (org.apache.kafka.connect.runtime.AbstractWorkerSourceTask:289)
+INFO [0:0:0:0:0:0:0:1] - - [01/Jul/2026:04:04:53 +0000] "POST /connectors HTTP/1.1" 201 300 "" "curl/8.7.1" 256 (org.apache.kafka.connect.runtime.rest.RestServer:57)
+INFO [0:0:0:0:0:0:0:1] - - [01/Jul/2026:04:09:09 +0000] "GET /connectors/file-input-connector/status HTTP/1.1" 200 207 "" "curl/8.7.1" 24 (org.apache.kafka.connect.runtime.rest.RestServer:57)
