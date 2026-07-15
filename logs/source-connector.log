@@ -4,8 +4,8 @@ curl -X POST -H "Content-Type: application/json" --data '{
   "config": {
     "connector.class": "com.example.file.FileConnector",
     "tasks.max": 1,
-    "topic": "file-input-topic",
-    "file": "/Users/abhijitsarkar/development/kafka/file_data.csv"
+    "topic": "text-topic",
+    "file": "/Users/abhijitsarkar/development/files/file_data.txt"
   }
 }' http://localhost:8083/connectors
 {
@@ -14,7 +14,7 @@ curl -X POST -H "Content-Type: application/json" --data '{
     "connector.class":"com.example.file.FileConnector",
     "tasks.max":"1",
     "topic":"file-input-topic",
-    "file":"/Users/abhijitsarkar/development/kafka/file_data.csv",
+    "file":"/Users/abhijitsarkar/development/file_data.csv",
     "name":"file-input-connector"
   },
   "tasks": [

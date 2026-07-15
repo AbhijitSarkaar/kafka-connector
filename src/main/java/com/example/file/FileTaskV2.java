@@ -18,13 +18,13 @@ public class FileTaskV2 extends SourceTask {
     private String topic_name;
     private String file_name;
     private Long streamOffset;
-    private static final Schema VALUE_SCHEMA = Schema.STRING_SCHEMA;
 
     @Override
     public String version() {
         return "2.0";
     }
 
+    // receive configuration set in connector
     @Override
     public void start(Map<String, String> taskConfig) {
         topic_name = taskConfig.get("topic");

@@ -1,0 +1,12 @@
+curl -X POST -H "Content-Type: application/json" --data '{
+    "name": "file-sink-connector",
+    "config": {
+        "connector.class": "com.example.file.FileSinkConnector",
+        "tasks.max": 1,
+        "topics": "text-topic",
+        "file": "/Users/abhijitsarkar/development/files/file_sink_data.txt"
+    }
+}' http://localhost:8083/connectors
+
+
+
