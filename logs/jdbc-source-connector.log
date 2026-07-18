@@ -1,0 +1,13 @@
+
+curl -X POST -H "Content-Type: application/json" --data '{
+     "name": "jdbc-mysql-connector-product",
+     "config": {
+         "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+         "connection.url": "jdbc:mysql://localhost:3306/service_db",
+         "connection.user": "",
+         "connection.password": "",
+         "table.whitelist": "product_source",
+         "topic.prefix": "mysql-",
+         "mode": "incrementing"
+     }
+ }' http://localhost:8083/connectors

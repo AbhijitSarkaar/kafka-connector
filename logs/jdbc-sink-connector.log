@@ -1,0 +1,13 @@
+
+ curl -X POST -H "Content-Type: application/json" --data '{
+      "name": "jdbc-mysql-sink-connector",
+      "config": {
+          "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+          "connection.url": "jdbc:mysql://localhost:3306/service_db",
+          "connection.user": "",
+          "connection.password": "",
+          "table.name.format": "product_sink",
+          "insert.mode": "insert",
+          "topics": "mysql-product_source"
+      }
+  }' http://localhost:8083/connectors

@@ -1,6 +1,6 @@
 // connector creation with kafka connect worker node
 curl -X POST -H "Content-Type: application/json" --data '{
-  "name": "file-input-connector",
+  "name": "file-input-connector-1",
   "config": {
     "connector.class": "com.example.file.FileConnector",
     "tasks.max": 1,
@@ -8,6 +8,7 @@ curl -X POST -H "Content-Type: application/json" --data '{
     "file": "/Users/abhijitsarkar/development/files/file_data.txt"
   }
 }' http://localhost:8083/connectors
+
 {
   "name":"file-input-connector",
   "config":{

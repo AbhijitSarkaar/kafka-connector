@@ -1,3 +1,4 @@
+
 curl -X POST -H "Content-Type: application/json" --data '{
     "name": "file-sink-connector",
     "config": {
@@ -7,6 +8,4 @@ curl -X POST -H "Content-Type: application/json" --data '{
         "file": "/Users/abhijitsarkar/development/files/file_sink_data.txt"
     }
 }' http://localhost:8083/connectors
-
-
 
